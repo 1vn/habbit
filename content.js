@@ -54,6 +54,18 @@ function removeTrending(){
 	$(".trending-subreddits-content").remove();
 }
 
+function removeExternalLinks(){
+	$(".thing[data-type='link']").each(function(i, e){
+		console.log(e.dataset)
+		if(e.dataset.domain.indexOf("self.") < 0){
+			e.remove()
+		}
+	})
+}
+
+
+
+
 $(document).ready(function(){
 	init();
 	removeUpvoteNumbers();
@@ -64,4 +76,5 @@ $(document).ready(function(){
 	removeAccountActivity();
 	removeGoldAd();
 	removeTrending();
+	removeExternalLinks();
 })
