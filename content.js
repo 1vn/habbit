@@ -8,12 +8,13 @@ function init(){
 			chrome.storage.sync.set({
       			"firstDate": Date.now()
     		});
-    		return;
     	}
-  		console.log(obj.firstDate)
+
+		//get number of days elapsed since firstDate
+		days = (Date.now() - obj.firstDate)/86400000;
+		return days
 	});
 }
-
 
 function removeUpvoteNumbers(){
 	$(".score").remove();
@@ -40,8 +41,8 @@ function removeSearch(){
 	$("#search").remove();
 }
 
-function removeVideoPosts(){
-	$("div.expando-button").parent().parent().remove();
+function removeVideoPosts(days){
+	$("div.expando-button").parent().parent().each();
 }
 
 function removeSideContent(){
@@ -61,13 +62,24 @@ function removeTrending(){
 }
 
 $(document).ready(function(){
-	init();
+	numDays = init();
+
+	//week 1: upvote, trending content 
 	removeUpvoteNumbers();
-	removeVideoPosts();
-	removeSearch();
-	removeSideBox();
-	removeSideContent();
-	removeAccountActivity();
-	removeGoldAd();
 	removeTrending();
+	removeVideoPosts(numDays);
+
+	//week 2:  sidebar, account activity
+	if (days >= 7){
+		removeSideBox();
+		removeSideContent();
+		removeAccountActivity();
+	}
+
+	//week 3:  search, taglines, goldad
+	if (days >= 14){
+		removeGoldAd();
+		removeSearch();
+	}
+	
 })
