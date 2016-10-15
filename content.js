@@ -15,12 +15,18 @@ function removeUpvoteNumbers(){
 }
 
 function getAllPosts(){
+	var posts = []
 	$(".thing").each(function(i, e){
-		e
+		posts.push(e)
 	})
+
+	return posts;
+}
+
+function removeVideoPosts(){
+	$("div.expando-button").parent().parent().remove();
 }
 
 $(document).ready(function(){
-	init()
-	getAllPosts()
+	init();
 })
