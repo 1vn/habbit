@@ -16,7 +16,10 @@ function init(){
 
 
 function removeUpvoteNumbers(){
-	$(".score").html("");
+	$(".score").remove();
+	$(".arrow.up").css("background", "none");
+	$(".arrow.down").css("background", "none");
+	$(".arrow").css("cursor", "default");
 }
 
 
@@ -29,10 +32,42 @@ function getAllPosts(){
 	return posts;
 }
 
+function removeSideBox(){
+	$(".sidebox").remove();
+}
+
+function removeSearch(){
+	$("#search").remove();
+}
+
 function removeVideoPosts(){
 	$("div.expando-button").parent().parent().remove();
 }
 
+function removeSideContent(){
+	$(".sidecontentbox").remove();
+}
+
+function removeAccountActivity(){
+	$(".account-activity-box").remove();
+}
+
+function removeGoldAd(){
+	$(".goldvertisement").remove();
+}
+
+function removeTrending(){
+	$(".trending-subreddits-content").remove();
+}
+
 $(document).ready(function(){
 	init();
+	removeUpvoteNumbers();
+	removeVideoPosts();
+	removeSearch();
+	removeSideBox();
+	removeSideContent();
+	removeAccountActivity();
+	removeGoldAd();
+	removeTrending();
 })
