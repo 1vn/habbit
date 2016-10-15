@@ -1,3 +1,7 @@
+
+/*On page load, define firstDate to determine the extent of "boringness"
+  to apply to reddit.
+*/
 function init(){
 	chrome.storage.sync.get("firstDate", function (obj) {
     	if (!obj.firstDate){
@@ -10,9 +14,11 @@ function init(){
 	});
 }
 
+
 function removeUpvoteNumbers(){
 	$(".score").html("");
 }
+
 
 function getAllPosts(){
 	$(".thing").each(function(i, e){
