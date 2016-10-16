@@ -8,9 +8,6 @@
     "*://*.reddit.com/*",
     "storage"
   ],
-  "background": {
-    "scripts": ["background.js"]
-  },
   "content_scripts": [{
     "js": [ "jquery.min.js", "content.js" ],
     "matches": [ "*://*.reddit.com/*" ]    
