@@ -86,6 +86,10 @@ function removeExternalLinks(){
 
 $(document).ready(function(){
 	init(function(days){
+		//var days = 8
+		//var days = 15
+		//var days = 22
+
 		//week 1: upvote, trending content 
 		removeUpvoteNumbers();
 		removeTrending();
